@@ -1,0 +1,14 @@
+class Room {
+  constructor(roomCode, questions, hostId) {
+    this.roomCode = roomCode;
+    this.hostId = hostId;
+    this.players = [];
+    this.questions = questions;
+    this.currentQuestion = null;
+    this.currentCorrectPlayerId = null;
+    this.hasQuestionBeenAnswered = false;
+    this.gameStarted = false;
+  }
+}
+
+export default Room;

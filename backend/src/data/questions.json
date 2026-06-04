@@ -1,0 +1,37 @@
+[
+  { "id": 1, "category": "History", "value": 100, "text": "Who was the first president of the United States?", "options": ["George Washington", "John Adams", "Thomas Jefferson", "James Madison"], "answer": "George Washington", "used": false },
+  { "id": 2, "category": "History", "value": 200, "text": "What year did World War II end?", "options": ["1939", "1941", "1945", "1950"], "answer": "1945", "used": false },
+  { "id": 3, "category": "History", "value": 300, "text": "What ancient civilization built the pyramids at Giza?", "options": ["Romans", "Greeks", "Egyptians", "Mayans"], "answer": "Egyptians", "used": false },
+  { "id": 4, "category": "History", "value": 400, "text": "The Declaration of Independence was signed in what year?", "options": ["1776", "1781", "1789", "1812"], "answer": "1776", "used": false },
+  { "id": 5, "category": "History", "value": 500, "text": "Who was the British prime minister during most of World War II?", "options": ["Winston Churchill", "Neville Chamberlain", "Margaret Thatcher", "Tony Blair"], "answer": "Winston Churchill", "used": false },
+
+  { "id": 6, "category": "Science", "value": 100, "text": "What planet is known as the Red Planet?", "options": ["Venus", "Mars", "Jupiter", "Mercury"], "answer": "Mars", "used": false },
+  { "id": 7, "category": "Science", "value": 200, "text": "What gas do humans need to breathe?", "options": ["Carbon Dioxide", "Oxygen", "Hydrogen", "Nitrogen"], "answer": "Oxygen", "used": false },
+  { "id": 8, "category": "Science", "value": 300, "text": "What force keeps us on the ground?", "options": ["Magnetism", "Friction", "Gravity", "Electricity"], "answer": "Gravity", "used": false },
+  { "id": 9, "category": "Science", "value": 400, "text": "What is H2O commonly known as?", "options": ["Salt", "Water", "Oxygen", "Hydrogen"], "answer": "Water", "used": false },
+  { "id": 10, "category": "Science", "value": 500, "text": "What part of the cell contains DNA?", "options": ["Nucleus", "Ribosome", "Cell Wall", "Mitochondria"], "answer": "Nucleus", "used": false },
+
+  { "id": 11, "category": "Sports", "value": 100, "text": "How many players are on the field for one soccer team?", "options": ["9", "10", "11", "12"], "answer": "11", "used": false },
+  { "id": 12, "category": "Sports", "value": 200, "text": "What sport uses a puck?", "options": ["Baseball", "Hockey", "Basketball", "Tennis"], "answer": "Hockey", "used": false },
+  { "id": 13, "category": "Sports", "value": 300, "text": "How many points is a touchdown worth?", "options": ["3", "6", "7", "10"], "answer": "6", "used": false },
+  { "id": 14, "category": "Sports", "value": 400, "text": "What country hosted the 2016 Summer Olympics?", "options": ["China", "Brazil", "Japan", "Greece"], "answer": "Brazil", "used": false },
+  { "id": 15, "category": "Sports", "value": 500, "text": "In tennis, what does 'love' mean?", "options": ["Zero", "Tie", "Win", "Fault"], "answer": "Zero", "used": false },
+
+  { "id": 16, "category": "Movies", "value": 100, "text": "What movie features a character named Woody and Buzz?", "options": ["Toy Story", "Shrek", "Cars", "Finding Nemo"], "answer": "Toy Story", "used": false },
+  { "id": 17, "category": "Movies", "value": 200, "text": "What color pill does Neo take in The Matrix?", "options": ["Blue", "Red", "Green", "Yellow"], "answer": "Red", "used": false },
+  { "id": 18, "category": "Movies", "value": 300, "text": "Who directed Jurassic Park?", "options": ["Steven Spielberg", "James Cameron", "George Lucas", "Ridley Scott"], "answer": "Steven Spielberg", "used": false },
+  { "id": 19, "category": "Movies", "value": 400, "text": "What is the name of Batman's city?", "options": ["Metropolis", "Gotham", "Star City", "Central City"], "answer": "Gotham", "used": false },
+  { "id": 20, "category": "Movies", "value": 500, "text": "Which movie won Best Picture at the 1998 Oscars?", "options": ["Titanic", "Good Will Hunting", "L.A. Confidential", "Saving Private Ryan"], "answer": "Titanic", "used": false },
+
+  { "id": 21, "category": "Geography", "value": 100, "text": "What is the capital of France?", "options": ["Paris", "Berlin", "Madrid", "Rome"], "answer": "Paris", "used": false },
+  { "id": 22, "category": "Geography", "value": 200, "text": "What is the largest ocean on Earth?", "options": ["Atlantic", "Indian", "Pacific", "Arctic"], "answer": "Pacific", "used": false },
+  { "id": 23, "category": "Geography", "value": 300, "text": "Mount Everest is located in which mountain range?", "options": ["Alps", "Andes", "Himalayas", "Rockies"], "answer": "Himalayas", "used": false },
+  { "id": 24, "category": "Geography", "value": 400, "text": "What country has the most people?", "options": ["China", "India", "United States", "Indonesia"], "answer": "India", "used": false },
+  { "id": 25, "category": "Geography", "value": 500, "text": "What is the longest river in the world?", "options": ["Amazon", "Nile", "Yangtze", "Mississippi"], "answer": "Nile", "used": false },
+
+  { "id": 26, "category": "Tech", "value": 100, "text": "What does CPU stand for?", "options": ["Central Processing Unit", "Computer Power Utility", "Core Program Unit", "Central Program User"], "answer": "Central Processing Unit", "used": false },
+  { "id": 27, "category": "Tech", "value": 200, "text": "What does HTML stand for?", "options": ["HyperText Markup Language", "High Tech Machine Learning", "Home Tool Markup Language", "Hyperlink Text Main Language"], "answer": "HyperText Markup Language", "used": false },
+  { "id": 28, "category": "Tech", "value": 300, "text": "What company created Windows?", "options": ["Apple", "Microsoft", "Google", "IBM"], "answer": "Microsoft", "used": false },
+  { "id": 29, "category": "Tech", "value": 400, "text": "What does RAM stand for?", "options": ["Random Access Memory", "Rapid Action Machine", "Read Access Module", "Run Active Memory"], "answer": "Random Access Memory", "used": false },
+  { "id": 30, "category": "Tech", "value": 500, "text": "What number system uses only 0 and 1?", "options": ["Decimal", "Binary", "Hexadecimal", "Octal"], "answer": "Binary", "used": false }
+]
