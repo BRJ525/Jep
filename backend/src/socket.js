@@ -35,6 +35,9 @@ function setupSocket(io) {
       room.players.push(host);
 
       rooms[roomCode] = room;
+
+      console.log("Rooms after create:", rooms);
+      
       socket.join(roomCode);
 
       socket.emit("roomCreated", room);
@@ -121,10 +124,6 @@ function setupSocket(io) {
       if (room) {
         io.to(room.roomCode).emit("roomUpdated", room);
       }
-    });
-
-    socket.on("debugRooms", () => {
-      console.log("Current rooms:", rooms);
     });
 
     socket.on("closeQuestion", ({ roomCode }) => {
