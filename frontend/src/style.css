@@ -83,11 +83,13 @@ body {
 .home-stage {
   width: 100%;
   max-width: 620px;
+  min-height: 100%;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   transform: translateY(-22px);
 }
@@ -426,22 +428,30 @@ button {
 /* MOBILE */
 /* ========================= */
 
-/* @media (max-width: 520px) {
+@media (max-width: 520px) {
   .home-screen {
-    padding: 14px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
   }
 
   .home-stage {
-    transform: translateY(-12px);
+    width: 100%;
+    max-width: none;
+    transform: none;
   }
 
   .home-header-img {
-    width: min(440px, 90vw);
+    width: 96vw;
+    max-width: 520px;
+    margin-bottom: -2px;
   }
 
   .home-card {
-    padding: 18px;
-    border-radius: 20px;
+    width: 94vw;
+    max-width: none;
+    padding: 22px;
+    border-radius: 22px;
   }
 
   .home-card-top {
@@ -449,31 +459,94 @@ button {
   }
 
   .home-card h2 {
-    font-size: 24px;
+    font-size: 28px;
+  }
+
+  .home-card p {
+    font-size: 15px;
   }
 
   .home-form {
-    gap: 8px;
+    gap: 12px;
+  }
+
+  .home-form label {
+    font-size: 13px;
   }
 
   .home-form input {
-    height: 44px;
+    height: 54px;
+    font-size: 17px;
+    border-radius: 15px;
   }
 
   .primary-btn,
   .secondary-btn {
-    height: 46px;
+    height: 56px;
+    font-size: 16px;
+    border-radius: 16px;
+  }
+
+  .join-box {
+    gap: 12px;
   }
 }
 
-@media (max-height: 720px) {
-  .home-stage {
-    transform: translateY(-8px) scale(0.92);
+@media (max-width: 380px) {
+  .home-header-img {
+    width: 98vw;
+  }
+
+  .home-card {
+    width: 96vw;
+    padding: 18px;
+  }
+
+  .home-card h2 {
+    font-size: 25px;
+  }
+
+  .home-form input {
+    height: 50px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    height: 52px;
   }
 }
 
-@media (max-height: 620px) {
-  .home-stage {
-    transform: translateY(-4px) scale(0.82);
+@media (max-height: 720px) and (max-width: 520px) {
+  .home-header-img {
+    width: 90vw;
   }
-} */
+
+  .home-card {
+    padding: 18px;
+  }
+
+  .home-form input {
+    height: 48px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    height: 50px;
+  }
+}
+
+@media (max-height: 620px) and (max-width: 520px) {
+  .home-screen {
+    overflow-y: auto;
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+
+  .home-header-img {
+    width: 82vw;
+  }
+
+  .home-card {
+    padding: 16px;
+  }
+}
