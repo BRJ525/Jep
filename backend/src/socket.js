@@ -123,6 +123,10 @@ function setupSocket(io) {
       }
     });
 
+    socket.on("debugRooms", () => {
+      console.log("Current rooms:", rooms);
+    });
+
     socket.on("closeQuestion", ({ roomCode }) => {
       const room = findRoom(rooms, roomCode);
       if (!room) return;
