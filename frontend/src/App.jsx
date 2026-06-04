@@ -29,7 +29,6 @@ function App() {
   }, []);
 
   if (screen === "home") {
-    console.log("Rooms after create:", rooms);
     return (
       <Home
         setScreen={setScreen}
