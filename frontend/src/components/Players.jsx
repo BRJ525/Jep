@@ -6,7 +6,7 @@ function Players({ players }) {
       {players.map((player) => (
         <div className="player-row" key={player.id}>
           <span>
-            {player.name} {player.isHost && "[HOST]"}
+            {player.name} {player.id === room.hostId && "[HOST]"}
           </span>
 
           {player.selectedAnswer && <span className="buzz-tag">Answered</span>}
