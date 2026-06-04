@@ -35,8 +35,6 @@ function setupSocket(io) {
       room.players.push(host);
 
       rooms[roomCode] = room;
-
-      console.log("Rooms after create:", rooms);
       
       socket.join(roomCode);
 
