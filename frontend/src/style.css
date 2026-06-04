@@ -71,9 +71,7 @@ body {
 
 .page {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 30px;
   text-align: center;
 }
 
@@ -147,4 +145,41 @@ button {
   border-radius: 10px;
   margin: 20px auto;
   max-width: 400px;
+}
+
+.app-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-card {
+  width: 400px;
+  background: #1e2a44;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.home-card h1 {
+  margin: 0 0 10px 0;
+}
+
+.home-card input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.home-card button {
+  width: 100%;
+}
+
+.error {
+  color: #ff6b6b;
+  margin: 0;
 }
