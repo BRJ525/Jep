@@ -42,45 +42,61 @@ function setupSocket(io) {
     });
 
     socket.on("joinRoom", ({ playerName, roomCode }) => {
-      if (!playerName?.trim()) {
-        socket.emit("roomError", "Name is required.");
+      const room = rooms[roomCode];
+
+      if (!room) {
+        socket.emit("roomError", "Room not found.");
         return;
       }
 
-      const room = findRoom(rooms, roomCode);
-
-      if (!room) {
-        socket.emit("roomError", "Invalid room code.");
+      if (room.gameStarted) {
+        socket.emit("roomError", "This game has already started. You cannot join now.");
         return;
       }
 
       if (room.players.length >= 4) {
-        socket.emit("roomError", "Room is full.");
+        socket.emit("roomError", "This room is full.");
         return;
       }
 
-      const player = new Player(socket.id, playerName.trim(), false);
-      addPlayerToRoom(room, player);
+      const nameTaken = room.players.some(
+        (player) => player.name.toLowerCase() === playerName.toLowerCase()
+      );
 
-      socket.join(room.roomCode);
+      if (nameTaken) {
+        socket.emit("roomError", "That name is already taken.");
+        return;
+      }
+
+      room.players.push({
+        id: socket.id,
+        name: playerName,
+        score: 0,
+      });
+
+      socket.join(roomCode);
 
       socket.emit("roomJoined", room);
-      io.to(room.roomCode).emit("roomUpdated", room);
+      io.to(roomCode).emit("roomUpdated", room);
     });
 
     socket.on("startGame", ({ roomCode }) => {
-      const room = findRoom(rooms, roomCode);
-      if (!room) return;
-    
-      if (!isRoomHost(room, socket.id)) {
+      const room = rooms[roomCode];
+
+      if (!room) {
+        socket.emit("roomError", "Room not found.");
+        return;
+      }
+
+      if (room.hostId !== socket.id) {
         socket.emit("roomError", "Only the host can start the game.");
         return;
       }
 
       room.gameStarted = true;
 
-      io.to(room.roomCode).emit("gameStarted", room);
-      io.to(room.roomCode).emit("roomUpdated", room);
+      io.to(roomCode).emit("gameStarted", room);
+      io.to(roomCode).emit("roomUpdated", room);
     });
 
     socket.on("selectQuestion", ({ roomCode, questionId }) => {

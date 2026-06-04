@@ -1,5 +1,6 @@
 import { useState } from "react";
 import socket from "../socket";
+import headerImage from "../assets/jeopardee.png";
 
 function Home({ setScreen, setPlayerName, setRoomCode, setRoom }) {
   const [name, setName] = useState("");
@@ -20,11 +21,16 @@ function Home({ setScreen, setPlayerName, setRoomCode, setRoom }) {
   function createRoom() {
     if (!requireName()) return;
 
-    socket.emit("createRoom", {
-      playerName: name.trim()
-    });
+    console.log("Create room clicked");
+    console.log("Socket connected?", socket.connected);
+    console.log("Socket id:", socket.id);
+
+    socket.off("roomCreated");
+    socket.off("roomError");
 
     socket.once("roomCreated", (room) => {
+      console.log("Room created:", room);
+
       setPlayerName(name.trim());
       setRoomCode(room.roomCode);
       setRoom(room);
@@ -32,65 +38,109 @@ function Home({ setScreen, setPlayerName, setRoomCode, setRoom }) {
     });
 
     socket.once("roomError", (message) => {
+      console.log("Room error:", message);
       setError(message);
+    });
+
+    socket.emit("createRoom", {
+      playerName: name.trim()
     });
   }
 
   function joinRoom() {
-    if (!requireName()) return;
+      if (!requireName()) return;
 
-    if (!roomInput.trim()) {
-      setError("Please enter a room code.");
-      return;
+      if (!roomInput.trim()) {
+        setError("Please enter a room code.");
+        return;
+      }
+
+      setError("");
+
+      socket.off("roomJoined");
+      socket.off("roomError");
+
+      socket.once("roomJoined", (room) => {
+        setPlayerName(name.trim());
+        setRoomCode(room.roomCode);
+        setRoom(room);
+        setScreen("lobby");
+      });
+
+      socket.once("roomError", (message) => {
+        console.log("Room error:", message);
+        setError(message);
+      });
+
+      socket.emit("joinRoom", {
+        playerName: name.trim(),
+        roomCode: roomInput.trim().toUpperCase()
+      });
     }
 
-    socket.emit("joinRoom", {
-      playerName: name.trim(),
-      roomCode: roomInput.trim().toUpperCase()
-    });
+ return (
+    <div className="home-screen">
+      <div className="home-bg-glow home-bg-glow-one"></div>
+      <div className="home-bg-glow home-bg-glow-two"></div>
 
-    socket.once("roomJoined", (room) => {
-      setPlayerName(name.trim());
-      setRoomCode(room.roomCode);
-      setRoom(room);
-      setScreen("lobby");
-    });
-
-    socket.once("roomError", (message) => {
-      setError(message);
-    });
-  }
-
-  return (
-    <div className="app-bg">
-      <div className="home-card">
-        <h1>Jeopardy Arena</h1>
-
-        <input
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+      <div className="home-stage">
+        <img
+          className="home-header-img"
+          src={headerImage}
+          alt="Jeopardee"
         />
 
-        <button onClick={createRoom}>Create Room</button>
+        <div className="home-card">
+          <div className="home-card-top">
+            <h2>Welcome</h2>
+            <p>Host a match or join with a room code.</p>
+          </div>
 
-        <button onClick={() => setShowJoinBox(true)}>
-          Join Room
-        </button>
+          <div className="home-form">
+            <label>Your Name</label>
 
-        {showJoinBox && (
-          <>
             <input
-              placeholder="Enter room code"
-              value={roomInput}
-              onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
 
-            <button onClick={joinRoom}>Join</button>
-          </>
-        )}
+            <button className="primary-btn" onClick={createRoom}>
+              Create Room
+            </button>
 
-        {error && <p className="error">{error}</p>}
+            {!showJoinBox && (
+              <button
+                className="secondary-btn"
+                onClick={() => setShowJoinBox(true)}
+              >
+                Join Room
+              </button>
+            )}
+
+            {showJoinBox && (
+              <div className="join-box">
+                <label>Room Code</label>
+
+                <input
+                  placeholder="Enter room code"
+                  value={roomInput}
+                  onChange={(e) => setRoomInput(e.target.value.toUpperCase())}
+                />
+
+                <button className="secondary-btn" onClick={joinRoom}>
+                  Join Game
+                </button>
+              </div>
+            )}
+
+            {error && (
+              <div className="error-box">
+                {error}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
