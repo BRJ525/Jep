@@ -35,20 +35,21 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
       <main className="main-game">
         <h1>Jeopardy Arena</h1>
 
-        <GameBoard
-          questions={room.questions}
-          roomCode={roomCode}
-          disabled={room.currentQuestion}
+          {room.currentQuestion ? (
+            <QuestionCard
+              question={room.currentQuestion}
+              room={room}
+              roomCode={roomCode}
+              isHost={isHost}
+            />
+          ) : (
+            <GameBoard
+              questions={room.questions}
+              roomCode={roomCode}
+          disabled={false}
         />
-
-        {room.currentQuestion && (
-          <QuestionCard
-            question={room.currentQuestion}
-            room={room}
-            roomCode={roomCode}
-            isHost={isHost}
-          />
-        )}
+      )}
+      
       </main>
     </div>
   );
