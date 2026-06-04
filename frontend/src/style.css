@@ -426,7 +426,7 @@ button {
 /* MOBILE */
 /* ========================= */
 
-@media (max-width: 520px) {
+/* @media (max-width: 520px) {
   .home-screen {
     padding: 14px;
   }
@@ -476,4 +476,4 @@ button {
   .home-stage {
     transform: translateY(-4px) scale(0.82);
   }
-}
+} */
