@@ -1,4 +1,4 @@
-function Players({ players }) {
+function Players({ players, room }) {
   return (
     <div className="panel-box">
       <h3>Players</h3>

@@ -15,14 +15,17 @@ function Lobby({ roomCode, room }) {
         <h1>Lobby</h1>
         <p className="room-code">Room Code: {roomCode}</p>
 
-        <Players players={room?.players || []} />
+        <Players
+          players={room?.players || []}
+          room={room}
+        />
 
-        <p>{room?.players.length || 0}/4 players joined</p>
+        <p>{room?.players.length || 0}/4 players in the lobby</p>
 
         {isHost ? (
           <button onClick={startGame}>Start Game</button>
         ) : (
-          <p>Waiting for host to start...</p>
+          <p>Waiting for host to start the game...</p>
         )}
       </div>
     </div>

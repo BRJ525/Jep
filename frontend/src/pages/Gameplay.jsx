@@ -26,7 +26,10 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
       <aside className="side-panel">
         <h2>Room {roomCode}</h2>
         <Scoreboard players={room.players} />
-        <Players players={room.players} />
+        <Players
+          players={room?.players || []}
+          room={room}
+         />
         <button className="small-button" onClick={() => setScreen("home")}>
           Leave
         </button>
