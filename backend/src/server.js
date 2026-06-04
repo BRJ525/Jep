@@ -3,25 +3,36 @@ import cors from "cors";
 import http from "http";
 import { Server } from "socket.io";
 
-import roomRoutes from "./routes/roomRoutes.js";
-import gameRoutes from "./routes/gameRoutes.js";
 import setupSocket from "./socket.js";
 
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://jep-1.onrender.com"
+];
+
+app.use(cors({
+  origin: allowedOrigins
+}));
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Jeopardy backend is running.");
+});
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     methods: ["GET", "POST"]
   }
 });
-
-app.use(cors());
-app.use(express.json());
-
-app.use("/api/rooms", roomRoutes);
-app.use("/api/game", gameRoutes);
 
 setupSocket(io);
 
