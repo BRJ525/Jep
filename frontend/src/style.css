@@ -1008,6 +1008,10 @@ button {
   font-weight: 900;
 }
 
+.answer-status.incorrect {
+  color: #ff4d4d;
+}
+
 .answer-status {
   background: rgba(255, 204, 0, 0.16);
   border: 1px solid rgba(255, 204, 0, 0.35);

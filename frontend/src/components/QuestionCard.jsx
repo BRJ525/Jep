@@ -49,8 +49,11 @@ function QuestionCard({ question, room, roomCode, isHost }) {
       </div>
 
       {me?.selectedAnswer && !room.hasQuestionBeenAnswered && (
-        <div className="answer-status">
-          You answered: <strong>{me.selectedAnswer}</strong>
+        <div className="answer-status incorrect">
+          <div>INCORRECT</div>
+          <div>
+            You Answered: <strong>{me.selectedAnswer}</strong>
+          </div>
         </div>
       )}
 
