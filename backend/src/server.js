@@ -5,6 +5,8 @@ import { Server } from "socket.io";
 
 import setupSocket from "./socket.js";
 
+import rooms from "./data/rooms.js";
+
 const app = express();
 const server = http.createServer(app);
 
@@ -20,11 +22,14 @@ app.use(cors({
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Jeopardy backend is running.");
+  res.send("Backend is running");
 });
 
 app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
+  res.json({
+    status: "ok",
+    openRooms: Object.keys(rooms).length
+  });
 });
 
 const io = new Server(server, {

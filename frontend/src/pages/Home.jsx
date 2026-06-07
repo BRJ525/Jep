@@ -80,8 +80,6 @@ function Home({ setScreen, setPlayerName, setRoomCode, setRoom }) {
 
  return (
     <div className="home-screen">
-      <div className="home-bg-glow home-bg-glow-one"></div>
-      <div className="home-bg-glow home-bg-glow-two"></div>
 
       <div className="home-stage">
         <img

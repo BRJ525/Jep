@@ -3,10 +3,9 @@ import socket from "../socket";
 import GameBoard from "../components/GameBoard";
 import Scoreboard from "../components/Scoreboard";
 import QuestionCard from "../components/QuestionCard";
-import Players from "../components/Players";
+import jeopardeeLogo from "../assets/jeopardee.png";
 
 function Gameplay({ setScreen, roomCode, room, setRoom }) {
-  const me = room?.players.find((p) => p.id === socket.id);
   const isHost = room?.hostId === socket.id;
 
   useEffect(() => {
@@ -18,42 +17,65 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
   }, [setRoom]);
 
   if (!room) {
-    return <div className="app-bg">Loading...</div>;
+    return (
+      <div className="home-screen">
+        <div className="home-stage">
+          <div className="home-card">
+            <h2>Loading...</h2>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="game-layout">
-      <aside className="side-panel">
-        <h2>Room {roomCode}</h2>
-        <Scoreboard players={room.players} />
-        <Players
-          players={room?.players || []}
-          room={room}
-         />
-        <button className="small-button" onClick={() => setScreen("home")}>
-          Leave
-        </button>
-      </aside>
+    <div className="home-screen gameplay-screen">
+      <div className="home-bg-glow home-bg-glow"></div>
+      <div className="home-bg-glow home-bg-glow"></div>
 
-      <main className="main-game">
-        <h1>Jeopardy Arena</h1>
-
-          {room.currentQuestion ? (
-            <QuestionCard
-              question={room.currentQuestion}
-              room={room}
-              roomCode={roomCode}
-              isHost={isHost}
+      <div className="gameplay-stage">
+        <div className="gameplay-header">
+          <div className="gameplay-brand">
+            <img
+              src={jeopardeeLogo}
+              alt="Jeopardee"
+              className="game-logo-img"
             />
-          ) : (
-            <GameBoard
-              questions={room.questions}
-              roomCode={roomCode}
-          disabled={false}
-        />
-      )}
-      
-      </main>
+
+            <div className="room-pill">
+              <span>Room</span>
+              <strong>{roomCode}</strong>
+            </div>
+          </div>
+
+          <button className="leave-btn" onClick={() => setScreen("home")}>
+            Leave
+          </button>
+        </div>
+
+        <div className="gameplay-layout">
+          <div className="gameplay-main">
+            {room.currentQuestion ? (
+              <QuestionCard
+                question={room.currentQuestion}
+                room={room}
+                roomCode={roomCode}
+                isHost={isHost}
+              />
+            ) : (
+              <GameBoard
+                questions={room.questions}
+                roomCode={roomCode}
+                disabled={false}
+              />
+            )}
+          </div>
+
+          <div className="gameplay-side">
+            <Scoreboard players={room.players} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

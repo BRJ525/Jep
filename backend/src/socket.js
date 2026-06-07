@@ -38,8 +38,8 @@ function setupSocket(io) {
       
       socket.join(roomCode);
 
-      socket.emit("roomCreated", room);
-      io.to(roomCode).emit("roomUpdated", room);
+      socket.emit("roomCreated", sanitizeRoom(room));
+      io.to(roomCode).emit("roomUpdated", sanitizeRoom(room));
     });
 
     socket.on("joinRoom", ({ playerName, roomCode }) => {
@@ -77,8 +77,8 @@ function setupSocket(io) {
 
       socket.join(roomCode);
 
-      socket.emit("roomJoined", room);
-      io.to(roomCode).emit("roomUpdated", room);
+      socket.emit("roomJoined", sanitizeRoom(room));
+      io.to(roomCode).emit("roomUpdated", sanitizeRoom(room));
     });
 
     socket.on("startGame", ({ roomCode }) => {
@@ -96,8 +96,8 @@ function setupSocket(io) {
 
       room.gameStarted = true;
 
-      io.to(roomCode).emit("gameStarted", room);
-      io.to(roomCode).emit("roomUpdated", room);
+      io.to(roomCode).emit("gameStarted", sanitizeRoom(room));
+      io.to(roomCode).emit("roomUpdated", sanitizeRoom(room));
     });
 
     socket.on("selectQuestion", ({ roomCode, questionId }) => {
@@ -112,7 +112,7 @@ function setupSocket(io) {
       const updatedRoom = selectQuestion(rooms, roomCode, questionId);
 
       if (updatedRoom) {
-        io.to(updatedRoom.roomCode).emit("roomUpdated", updatedRoom);
+        io.to(updatedRoom.roomCode).emit("roomUpdated", sanitizeRoom(updatedRoom));
       }
     });
 
@@ -120,7 +120,7 @@ function setupSocket(io) {
       const room = submitAnswer(rooms, roomCode, socket.id, selectedAnswer);
 
       if (room) {
-        io.to(room.roomCode).emit("roomUpdated", room);
+        io.to(room.roomCode).emit("roomUpdated", sanitizeRoom(room));
       }
     });
 
@@ -136,24 +136,70 @@ function setupSocket(io) {
       const updatedRoom = closeQuestion(rooms, roomCode);
 
       if (updatedRoom) {
-        io.to(updatedRoom.roomCode).emit("roomUpdated", updatedRoom);
+        io.to(updatedRoom.roomCode).emit("roomUpdated", sanitizeRoom(updatedRoom));
       }
     });
 
     socket.on("disconnect", () => {
-      Object.values(rooms).forEach((room) => {
+      Object.keys(rooms).forEach((roomCode) => {
+        const room = rooms[roomCode];
+
+        // Remove disconnected player from this room
         room.players = room.players.filter((p) => p.id !== socket.id);
 
-        if (room.hostId === socket.id && room.players.length > 0) {
+        // If nobody is left, delete the room from in-server memory
+        if (room.players.length === 0) {
+          delete rooms[roomCode];
+          console.log(`Deleted empty room: ${roomCode}`);
+          return;
+        }
+
+        // If host disconnected, make the first remaining player the new host
+        if (room.hostId === socket.id) {
           room.hostId = room.players[0].id;
         }
 
-        io.to(room.roomCode).emit("roomUpdated", room);
+        // Update remaining players in the room
+        io.to(room.roomCode).emit("roomUpdated", sanitizeRoom(room));
       });
 
       console.log("Disconnected:", socket.id);
     });
   });
+}
+
+function sanitizeRoom(room) {
+  return {
+    roomCode: room.roomCode,
+    hostId: room.hostId,
+    players: room.players.map((player) => ({
+      id: player.id,
+      name: player.name,
+      score: player.score,
+      selectedAnswer: player.selectedAnswer,
+    })),
+    gameStarted: room.gameStarted,
+    currentCorrectPlayerId: room.currentCorrectPlayerId,
+    hasQuestionBeenAnswered: room.hasQuestionBeenAnswered,
+
+    questions: room.questions.map((q) => ({
+      id: q.id,
+      category: q.category,
+      value: q.value,
+      used: q.used,
+    })),
+
+    currentQuestion: room.currentQuestion
+      ? {
+        id: room.currentQuestion.id,
+        category: room.currentQuestion.category,
+        value: room.currentQuestion.value,
+        text: room.currentQuestion.text,
+        options: room.currentQuestion.options,
+        used: room.currentQuestion.used,
+      }
+      : null,
+  };
 }
 
 export default setupSocket;

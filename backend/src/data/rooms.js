@@ -2,6 +2,7 @@ const rooms = {};
 
 function generateRoomCode() {
   let code;
+
   do {
     code = Math.floor(100000 + Math.random() * 900000).toString();
   } while (rooms[code]);
@@ -34,9 +35,11 @@ function deleteRoom(roomCode) {
   delete rooms[roomCode];
 }
 
-module.exports = {
+export {
   rooms,
   createRoom,
   getRoom,
   deleteRoom
 };
+
+export default rooms;

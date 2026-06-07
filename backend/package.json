@@ -4,11 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "node src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test": "vitest"
   },
   "dependencies": {
     "cors": "latest",
     "express": "latest",
     "socket.io": "latest"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.8"
   }
 }

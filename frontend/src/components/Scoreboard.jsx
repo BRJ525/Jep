@@ -1,13 +1,34 @@
-function Scoreboard({ players }) {
-  return (
-    <div className="scoreboard">
-      <h2>Scores</h2>
+import coinIcon from "../assets/coin.png";
 
-      {players.map((player) => (
-        <p key={player.id}>
-          {player.name}: ${player.score}
-        </p>
-      ))}
+function Scoreboard({ players }) {
+  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+
+  return (
+    <div className="scoreboard polished-scoreboard">
+      <div className="scoreboard-header">
+        <span>Scores</span>
+        <small>{players.length}/4</small>
+      </div>
+
+      <div className="score-list">
+        {sortedPlayers.map((player, index) => (
+          <div className="score-row" key={player.id}>
+            <div className="player-left">
+              <div className="rank-badge">#{index + 1}</div>
+
+              <div className="player-info">
+                <span className="score-name">{player.name}</span>
+                <small>Player</small>
+              </div>
+            </div>
+
+            <div className="score-amount">
+              <img src={coinIcon} alt="coins" className="coin-icon" />
+              <span>{player.score}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
