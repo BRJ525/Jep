@@ -60,10 +60,18 @@ function QuestionCard({ question, room, roomCode, isHost }) {
       {room.hasQuestionBeenAnswered && (
         <div className="correct-status">
           {correctPlayer ? (
-            <>
-              <strong>{correctPlayer.name}</strong> answered first and earned{" "}
-              <strong>${question.value}</strong>!
-            </>
+            correctPlayer.id === me.id ? (
+              <>
+                CORRECT
+                <br />
+                You answered first and earned <strong>${question.value}</strong>!
+              </>
+            ) : (
+              <>
+                <strong>{correctPlayer.name}</strong> answered first and earned{" "}
+                <strong>${question.value}</strong>!
+              </>
+            )
           ) : (
             <>Question complete.</>
           )}
