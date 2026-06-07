@@ -1,37 +1,422 @@
 [
-  { "id": 1, "category": "History", "value": 100, "text": "Who was the first president of the United States?", "options": ["George Washington", "John Adams", "Thomas Jefferson", "James Madison"], "answer": "George Washington", "used": false },
-  { "id": 2, "category": "History", "value": 200, "text": "What year did World War II end?", "options": ["1939", "1941", "1945", "1950"], "answer": "1945", "used": false },
-  { "id": 3, "category": "History", "value": 300, "text": "What ancient civilization built the pyramids at Giza?", "options": ["Romans", "Greeks", "Egyptians", "Mayans"], "answer": "Egyptians", "used": false },
-  { "id": 4, "category": "History", "value": 400, "text": "The Declaration of Independence was signed in what year?", "options": ["1776", "1781", "1789", "1812"], "answer": "1776", "used": false },
-  { "id": 5, "category": "History", "value": 500, "text": "Who was the British prime minister during most of World War II?", "options": ["Winston Churchill", "Neville Chamberlain", "Margaret Thatcher", "Tony Blair"], "answer": "Winston Churchill", "used": false },
-
-  { "id": 6, "category": "Science", "value": 100, "text": "What planet is known as the Red Planet?", "options": ["Venus", "Mars", "Jupiter", "Mercury"], "answer": "Mars", "used": false },
-  { "id": 7, "category": "Science", "value": 200, "text": "What gas do humans need to breathe?", "options": ["Carbon Dioxide", "Oxygen", "Hydrogen", "Nitrogen"], "answer": "Oxygen", "used": false },
-  { "id": 8, "category": "Science", "value": 300, "text": "What force keeps us on the ground?", "options": ["Magnetism", "Friction", "Gravity", "Electricity"], "answer": "Gravity", "used": false },
-  { "id": 9, "category": "Science", "value": 400, "text": "What is H2O commonly known as?", "options": ["Salt", "Water", "Oxygen", "Hydrogen"], "answer": "Water", "used": false },
-  { "id": 10, "category": "Science", "value": 500, "text": "What part of the cell contains DNA?", "options": ["Nucleus", "Ribosome", "Cell Wall", "Mitochondria"], "answer": "Nucleus", "used": false },
-
-  { "id": 11, "category": "Sports", "value": 100, "text": "How many players are on the field for one soccer team?", "options": ["9", "10", "11", "12"], "answer": "11", "used": false },
-  { "id": 12, "category": "Sports", "value": 200, "text": "What sport uses a puck?", "options": ["Baseball", "Hockey", "Basketball", "Tennis"], "answer": "Hockey", "used": false },
-  { "id": 13, "category": "Sports", "value": 300, "text": "How many points is a touchdown worth?", "options": ["3", "6", "7", "10"], "answer": "6", "used": false },
-  { "id": 14, "category": "Sports", "value": 400, "text": "What country hosted the 2016 Summer Olympics?", "options": ["China", "Brazil", "Japan", "Greece"], "answer": "Brazil", "used": false },
-  { "id": 15, "category": "Sports", "value": 500, "text": "In tennis, what does 'love' mean?", "options": ["Zero", "Tie", "Win", "Fault"], "answer": "Zero", "used": false },
-
-  { "id": 16, "category": "Movies", "value": 100, "text": "What movie features a character named Woody and Buzz?", "options": ["Toy Story", "Shrek", "Cars", "Finding Nemo"], "answer": "Toy Story", "used": false },
-  { "id": 17, "category": "Movies", "value": 200, "text": "What color pill does Neo take in The Matrix?", "options": ["Blue", "Red", "Green", "Yellow"], "answer": "Red", "used": false },
-  { "id": 18, "category": "Movies", "value": 300, "text": "Who directed Jurassic Park?", "options": ["Steven Spielberg", "James Cameron", "George Lucas", "Ridley Scott"], "answer": "Steven Spielberg", "used": false },
-  { "id": 19, "category": "Movies", "value": 400, "text": "What is the name of Batman's city?", "options": ["Metropolis", "Gotham", "Star City", "Central City"], "answer": "Gotham", "used": false },
-  { "id": 20, "category": "Movies", "value": 500, "text": "Which movie won Best Picture at the 1998 Oscars?", "options": ["Titanic", "Good Will Hunting", "L.A. Confidential", "Saving Private Ryan"], "answer": "Titanic", "used": false },
-
-  { "id": 21, "category": "Geography", "value": 100, "text": "What is the capital of France?", "options": ["Paris", "Berlin", "Madrid", "Rome"], "answer": "Paris", "used": false },
-  { "id": 22, "category": "Geography", "value": 200, "text": "What is the largest ocean on Earth?", "options": ["Atlantic", "Indian", "Pacific", "Arctic"], "answer": "Pacific", "used": false },
-  { "id": 23, "category": "Geography", "value": 300, "text": "Mount Everest is located in which mountain range?", "options": ["Alps", "Andes", "Himalayas", "Rockies"], "answer": "Himalayas", "used": false },
-  { "id": 24, "category": "Geography", "value": 400, "text": "What country has the most people?", "options": ["China", "India", "United States", "Indonesia"], "answer": "India", "used": false },
-  { "id": 25, "category": "Geography", "value": 500, "text": "What is the longest river in the world?", "options": ["Amazon", "Nile", "Yangtze", "Mississippi"], "answer": "Nile", "used": false },
-
-  { "id": 26, "category": "Tech", "value": 100, "text": "What does CPU stand for?", "options": ["Central Processing Unit", "Computer Power Utility", "Core Program Unit", "Central Program User"], "answer": "Central Processing Unit", "used": false },
-  { "id": 27, "category": "Tech", "value": 200, "text": "What does HTML stand for?", "options": ["HyperText Markup Language", "High Tech Machine Learning", "Home Tool Markup Language", "Hyperlink Text Main Language"], "answer": "HyperText Markup Language", "used": false },
-  { "id": 28, "category": "Tech", "value": 300, "text": "What company created Windows?", "options": ["Apple", "Microsoft", "Google", "IBM"], "answer": "Microsoft", "used": false },
-  { "id": 29, "category": "Tech", "value": 400, "text": "What does RAM stand for?", "options": ["Random Access Memory", "Rapid Action Machine", "Read Access Module", "Run Active Memory"], "answer": "Random Access Memory", "used": false },
-  { "id": 30, "category": "Tech", "value": 500, "text": "What number system uses only 0 and 1?", "options": ["Decimal", "Binary", "Hexadecimal", "Octal"], "answer": "Binary", "used": false }
+  {
+    "id": 1,
+    "category": "History",
+    "value": 100,
+    "text": "This empire, ruled by Augustus after the fall of the Republic, controlled much of Europe, North Africa, and the Middle East.",
+    "options": [
+      "Roman Empire",
+      "Byzantine Empire",
+      "Ottoman Empire",
+      "Persian Empire"
+    ],
+    "answer": "Roman Empire",
+    "used": false
+  },
+  {
+    "id": 2,
+    "category": "History",
+    "value": 200,
+    "text": "This 1215 English document limited the power of King John and influenced later constitutional governments.",
+    "options": [
+      "Magna Carta",
+      "Bill of Rights",
+      "Edict of Nantes",
+      "Treaty of Versailles"
+    ],
+    "answer": "Magna Carta",
+    "used": false
+  },
+  {
+    "id": 3,
+    "category": "History",
+    "value": 300,
+    "text": "This 19th-century conflict between the North and South resulted in the end of slavery in the United States.",
+    "options": [
+      "American Civil War",
+      "War of 1812",
+      "Mexican-American War",
+      "Spanish-American War"
+    ],
+    "answer": "American Civil War",
+    "used": false
+  },
+  {
+    "id": 4,
+    "category": "History",
+    "value": 400,
+    "text": "This 1789 event began when Parisians stormed a prison that became a symbol of royal authority.",
+    "options": [
+      "Storming of the Bastille",
+      "Boston Tea Party",
+      "March on Versailles",
+      "Battle of Waterloo"
+    ],
+    "answer": "Storming of the Bastille",
+    "used": false
+  },
+  {
+    "id": 5,
+    "category": "History",
+    "value": 500,
+    "text": "This Cold War policy aimed to stop the spread of communism, especially after World War II.",
+    "options": [
+      "Containment",
+      "Appeasement",
+      "Isolationism",
+      "Mercantilism"
+    ],
+    "answer": "Containment",
+    "used": false
+  },
+  {
+    "id": 6,
+    "category": "Science",
+    "value": 100,
+    "text": "This scientist proposed the three laws of motion and helped develop calculus.",
+    "options": [
+      "Isaac Newton",
+      "Albert Einstein",
+      "Galileo Galilei",
+      "Charles Darwin"
+    ],
+    "answer": "Isaac Newton",
+    "used": false
+  },
+  {
+    "id": 7,
+    "category": "Science",
+    "value": 200,
+    "text": "This process allows plants to convert sunlight, carbon dioxide, and water into glucose.",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Fermentation",
+      "Transpiration"
+    ],
+    "answer": "Photosynthesis",
+    "used": false
+  },
+  {
+    "id": 8,
+    "category": "Science",
+    "value": 300,
+    "text": "This subatomic particle has a negative electric charge and orbits the nucleus of an atom.",
+    "options": [
+      "Electron",
+      "Proton",
+      "Neutron",
+      "Photon"
+    ],
+    "answer": "Electron",
+    "used": false
+  },
+  {
+    "id": 9,
+    "category": "Science",
+    "value": 400,
+    "text": "This law states that energy cannot be created or destroyed, only transformed.",
+    "options": [
+      "Law of Conservation of Energy",
+      "Newton's First Law",
+      "Boyle's Law",
+      "Ohm's Law"
+    ],
+    "answer": "Law of Conservation of Energy",
+    "used": false
+  },
+  {
+    "id": 10,
+    "category": "Science",
+    "value": 500,
+    "text": "This type of bond forms when atoms share pairs of electrons.",
+    "options": [
+      "Covalent Bond",
+      "Ionic Bond",
+      "Hydrogen Bond",
+      "Metallic Bond"
+    ],
+    "answer": "Covalent Bond",
+    "used": false
+  },
+  {
+    "id": 11,
+    "category": "Sports",
+    "value": 100,
+    "text": "This international soccer tournament is held every four years and features national teams.",
+    "options": [
+      "World Cup",
+      "Champions League",
+      "Copa Libertadores",
+      "FA Cup"
+    ],
+    "answer": "World Cup",
+    "used": false
+  },
+  {
+    "id": 12,
+    "category": "Sports",
+    "value": 200,
+    "text": "In baseball, this achievement occurs when a batter hits a single, double, triple, and home run in the same game.",
+    "options": [
+      "Cycle",
+      "Grand Slam",
+      "Perfect Game",
+      "Triple Crown"
+    ],
+    "answer": "Cycle",
+    "used": false
+  },
+  {
+    "id": 13,
+    "category": "Sports",
+    "value": 300,
+    "text": "This boxer was known as 'The Greatest' and famously fought in the 'Rumble in the Jungle.'",
+    "options": [
+      "Muhammad Ali",
+      "Mike Tyson",
+      "Joe Frazier",
+      "George Foreman"
+    ],
+    "answer": "Muhammad Ali",
+    "used": false
+  },
+  {
+    "id": 14,
+    "category": "Sports",
+    "value": 400,
+    "text": "This tennis tournament is played on grass courts at the All England Club.",
+    "options": [
+      "Wimbledon",
+      "French Open",
+      "US Open",
+      "Australian Open"
+    ],
+    "answer": "Wimbledon",
+    "used": false
+  },
+  {
+    "id": 15,
+    "category": "Sports",
+    "value": 500,
+    "text": "This Olympic athlete won four gold medals in track and field at the 1936 Berlin Olympics.",
+    "options": [
+      "Jesse Owens",
+      "Carl Lewis",
+      "Usain Bolt",
+      "Michael Johnson"
+    ],
+    "answer": "Jesse Owens",
+    "used": false
+  },
+  {
+    "id": 16,
+    "category": "Movies",
+    "value": 100,
+    "text": "This 1975 Steven Spielberg film about a great white shark helped create the modern summer blockbuster.",
+    "options": [
+      "Jaws",
+      "Close Encounters of the Third Kind",
+      "Jurassic Park",
+      "E.T."
+    ],
+    "answer": "Jaws",
+    "used": false
+  },
+  {
+    "id": 17,
+    "category": "Movies",
+    "value": 200,
+    "text": "This 1941 film by Orson Welles is often cited for its innovative cinematography and narrative structure.",
+    "options": [
+      "Citizen Kane",
+      "Casablanca",
+      "The Maltese Falcon",
+      "Gone with the Wind"
+    ],
+    "answer": "Citizen Kane",
+    "used": false
+  },
+  {
+    "id": 18,
+    "category": "Movies",
+    "value": 300,
+    "text": "This director made The Godfather trilogy and Apocalypse Now.",
+    "options": [
+      "Francis Ford Coppola",
+      "Martin Scorsese",
+      "Stanley Kubrick",
+      "Brian De Palma"
+    ],
+    "answer": "Francis Ford Coppola",
+    "used": false
+  },
+  {
+    "id": 19,
+    "category": "Movies",
+    "value": 400,
+    "text": "In this 1960 Alfred Hitchcock film, a shower scene became one of cinema's most famous moments.",
+    "options": [
+      "Psycho",
+      "Vertigo",
+      "Rear Window",
+      "North by Northwest"
+    ],
+    "answer": "Psycho",
+    "used": false
+  },
+  {
+    "id": 20,
+    "category": "Movies",
+    "value": 500,
+    "text": "This Japanese director created Seven Samurai, later influencing films like The Magnificent Seven.",
+    "options": [
+      "Akira Kurosawa",
+      "Hayao Miyazaki",
+      "Yasujiro Ozu",
+      "Kenji Mizoguchi"
+    ],
+    "answer": "Akira Kurosawa",
+    "used": false
+  },
+  {
+    "id": 21,
+    "category": "Geography",
+    "value": 100,
+    "text": "This river runs through Egypt and is closely associated with the rise of ancient Egyptian civilization.",
+    "options": [
+      "Nile",
+      "Tigris",
+      "Euphrates",
+      "Jordan"
+    ],
+    "answer": "Nile",
+    "used": false
+  },
+  {
+    "id": 22,
+    "category": "Geography",
+    "value": 200,
+    "text": "This country contains both the cities of Barcelona and Madrid.",
+    "options": [
+      "Spain",
+      "Portugal",
+      "Italy",
+      "France"
+    ],
+    "answer": "Spain",
+    "used": false
+  },
+  {
+    "id": 23,
+    "category": "Geography",
+    "value": 300,
+    "text": "This mountain range forms a natural border between France and Spain.",
+    "options": [
+      "Pyrenees",
+      "Alps",
+      "Carpathians",
+      "Apennines"
+    ],
+    "answer": "Pyrenees",
+    "used": false
+  },
+  {
+    "id": 24,
+    "category": "Geography",
+    "value": 400,
+    "text": "This landlocked African country is home to the city of Addis Ababa.",
+    "options": [
+      "Ethiopia",
+      "Kenya",
+      "Tanzania",
+      "Sudan"
+    ],
+    "answer": "Ethiopia",
+    "used": false
+  },
+  {
+    "id": 25,
+    "category": "Geography",
+    "value": 500,
+    "text": "This narrow waterway separates Europe from Asia in Istanbul.",
+    "options": [
+      "Bosphorus Strait",
+      "Strait of Gibraltar",
+      "Suez Canal",
+      "Dardanelles"
+    ],
+    "answer": "Bosphorus Strait",
+    "used": false
+  },
+  {
+    "id": 26,
+    "category": "Tech",
+    "value": 100,
+    "text": "This company released the iPhone in 2007.",
+    "options": [
+      "Apple",
+      "Microsoft",
+      "Google",
+      "Samsung"
+    ],
+    "answer": "Apple",
+    "used": false
+  },
+  {
+    "id": 27,
+    "category": "Tech",
+    "value": 200,
+    "text": "This programming language is commonly used with React to build user interfaces for the web.",
+    "options": [
+      "JavaScript",
+      "C",
+      "Swift",
+      "Ruby"
+    ],
+    "answer": "JavaScript",
+    "used": false
+  },
+  {
+    "id": 28,
+    "category": "Tech",
+    "value": 300,
+    "text": "This data structure works on a last-in, first-out principle.",
+    "options": [
+      "Stack",
+      "Queue",
+      "Tree",
+      "Graph"
+    ],
+    "answer": "Stack",
+    "used": false
+  },
+  {
+    "id": 29,
+    "category": "Tech",
+    "value": 400,
+    "text": "This acronym refers to a system that translates domain names into IP addresses.",
+    "options": [
+      "DNS",
+      "HTTP",
+      "FTP",
+      "SQL"
+    ],
+    "answer": "DNS",
+    "used": false
+  },
+  {
+    "id": 30,
+    "category": "Tech",
+    "value": 500,
+    "text": "This computer scientist is widely associated with the concept of the Turing machine.",
+    "options": [
+      "Alan Turing",
+      "John von Neumann",
+      "Dennis Ritchie",
+      "Tim Berners-Lee"
+    ],
+    "answer": "Alan Turing",
+    "used": false
+  }
 ]
