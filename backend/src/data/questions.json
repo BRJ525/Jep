@@ -5,10 +5,10 @@
     "value": 100,
     "text": "This empire, ruled by Augustus after the fall of the Republic, controlled much of Europe, North Africa, and the Middle East.",
     "options": [
-      "Roman Empire",
-      "Byzantine Empire",
       "Ottoman Empire",
-      "Persian Empire"
+      "Byzantine Empire",
+      "Persian Empire",
+      "Roman Empire"
     ],
     "answer": "Roman Empire",
     "used": false
@@ -19,10 +19,10 @@
     "value": 200,
     "text": "This 1215 English document limited the power of King John and influenced later constitutional governments.",
     "options": [
-      "Magna Carta",
-      "Bill of Rights",
+      "Treaty of Versailles",
       "Edict of Nantes",
-      "Treaty of Versailles"
+      "Magna Carta",
+      "Bill of Rights"
     ],
     "answer": "Magna Carta",
     "used": false
@@ -33,10 +33,10 @@
     "value": 300,
     "text": "This 19th-century conflict between the North and South resulted in the end of slavery in the United States.",
     "options": [
-      "American Civil War",
       "War of 1812",
+      "Spanish-American War",
       "Mexican-American War",
-      "Spanish-American War"
+      "American Civil War"
     ],
     "answer": "American Civil War",
     "used": false
@@ -47,9 +47,9 @@
     "value": 400,
     "text": "This 1789 event began when Parisians stormed a prison that became a symbol of royal authority.",
     "options": [
-      "Storming of the Bastille",
       "Boston Tea Party",
       "March on Versailles",
+      "Storming of the Bastille",
       "Battle of Waterloo"
     ],
     "answer": "Storming of the Bastille",
@@ -61,10 +61,10 @@
     "value": 500,
     "text": "This Cold War policy aimed to stop the spread of communism, especially after World War II.",
     "options": [
-      "Containment",
       "Appeasement",
       "Isolationism",
-      "Mercantilism"
+      "Mercantilism",
+      "Containment"
     ],
     "answer": "Containment",
     "used": false
@@ -75,10 +75,10 @@
     "value": 100,
     "text": "This scientist proposed the three laws of motion and helped develop calculus.",
     "options": [
-      "Isaac Newton",
       "Albert Einstein",
+      "Charles Darwin",
       "Galileo Galilei",
-      "Charles Darwin"
+      "Isaac Newton"
     ],
     "answer": "Isaac Newton",
     "used": false
@@ -89,9 +89,9 @@
     "value": 200,
     "text": "This process allows plants to convert sunlight, carbon dioxide, and water into glucose.",
     "options": [
-      "Photosynthesis",
-      "Respiration",
       "Fermentation",
+      "Respiration",
+      "Photosynthesis",
       "Transpiration"
     ],
     "answer": "Photosynthesis",
@@ -103,10 +103,10 @@
     "value": 300,
     "text": "This subatomic particle has a negative electric charge and orbits the nucleus of an atom.",
     "options": [
-      "Electron",
       "Proton",
-      "Neutron",
-      "Photon"
+      "Photon",
+      "Electron",
+      "Neutron"
     ],
     "answer": "Electron",
     "used": false
@@ -117,10 +117,10 @@
     "value": 400,
     "text": "This law states that energy cannot be created or destroyed, only transformed.",
     "options": [
-      "Law of Conservation of Energy",
       "Newton's First Law",
-      "Boyle's Law",
-      "Ohm's Law"
+      "Ohm's Law",
+      "Law of Conservation of Energy",
+      "Boyle's Law"
     ],
     "answer": "Law of Conservation of Energy",
     "used": false
@@ -131,10 +131,10 @@
     "value": 500,
     "text": "This type of bond forms when atoms share pairs of electrons.",
     "options": [
-      "Covalent Bond",
-      "Ionic Bond",
       "Hydrogen Bond",
-      "Metallic Bond"
+      "Ionic Bond",
+      "Metallic Bond",
+      "Covalent Bond"
     ],
     "answer": "Covalent Bond",
     "used": false
@@ -145,10 +145,10 @@
     "value": 100,
     "text": "This international soccer tournament is held every four years and features national teams.",
     "options": [
-      "World Cup",
-      "Champions League",
+      "FA Cup",
       "Copa Libertadores",
-      "FA Cup"
+      "Champions League",
+      "World Cup"
     ],
     "answer": "World Cup",
     "used": false
@@ -159,10 +159,10 @@
     "value": 200,
     "text": "In baseball, this achievement occurs when a batter hits a single, double, triple, and home run in the same game.",
     "options": [
-      "Cycle",
+      "Triple Crown",
       "Grand Slam",
-      "Perfect Game",
-      "Triple Crown"
+      "Cycle",
+      "Perfect Game"
     ],
     "answer": "Cycle",
     "used": false
@@ -173,10 +173,10 @@
     "value": 300,
     "text": "This boxer was known as 'The Greatest' and famously fought in the 'Rumble in the Jungle.'",
     "options": [
-      "Muhammad Ali",
-      "Mike Tyson",
       "Joe Frazier",
-      "George Foreman"
+      "George Foreman",
+      "Mike Tyson",
+      "Muhammad Ali"
     ],
     "answer": "Muhammad Ali",
     "used": false
@@ -187,10 +187,10 @@
     "value": 400,
     "text": "This tennis tournament is played on grass courts at the All England Club.",
     "options": [
-      "Wimbledon",
-      "French Open",
       "US Open",
-      "Australian Open"
+      "Wimbledon",
+      "Australian Open",
+      "French Open"
     ],
     "answer": "Wimbledon",
     "used": false
@@ -201,10 +201,10 @@
     "value": 500,
     "text": "This Olympic athlete won four gold medals in track and field at the 1936 Berlin Olympics.",
     "options": [
-      "Jesse Owens",
       "Carl Lewis",
+      "Michael Johnson",
       "Usain Bolt",
-      "Michael Johnson"
+      "Jesse Owens"
     ],
     "answer": "Jesse Owens",
     "used": false
@@ -215,10 +215,10 @@
     "value": 100,
     "text": "This 1975 Steven Spielberg film about a great white shark helped create the modern summer blockbuster.",
     "options": [
-      "Jaws",
       "Close Encounters of the Third Kind",
-      "Jurassic Park",
-      "E.T."
+      "E.T.",
+      "Jaws",
+      "Jurassic Park"
     ],
     "answer": "Jaws",
     "used": false
@@ -229,10 +229,10 @@
     "value": 200,
     "text": "This 1941 film by Orson Welles is often cited for its innovative cinematography and narrative structure.",
     "options": [
-      "Citizen Kane",
-      "Casablanca",
+      "Gone with the Wind",
       "The Maltese Falcon",
-      "Gone with the Wind"
+      "Casablanca",
+      "Citizen Kane"
     ],
     "answer": "Citizen Kane",
     "used": false
@@ -243,10 +243,10 @@
     "value": 300,
     "text": "This director made The Godfather trilogy and Apocalypse Now.",
     "options": [
-      "Francis Ford Coppola",
       "Martin Scorsese",
       "Stanley Kubrick",
-      "Brian De Palma"
+      "Brian De Palma",
+      "Francis Ford Coppola"
     ],
     "answer": "Francis Ford Coppola",
     "used": false
@@ -257,10 +257,10 @@
     "value": 400,
     "text": "In this 1960 Alfred Hitchcock film, a shower scene became one of cinema's most famous moments.",
     "options": [
-      "Psycho",
-      "Vertigo",
       "Rear Window",
-      "North by Northwest"
+      "North by Northwest",
+      "Psycho",
+      "Vertigo"
     ],
     "answer": "Psycho",
     "used": false
@@ -271,9 +271,9 @@
     "value": 500,
     "text": "This Japanese director created Seven Samurai, later influencing films like The Magnificent Seven.",
     "options": [
+      "Yasujiro Ozu",
       "Akira Kurosawa",
       "Hayao Miyazaki",
-      "Yasujiro Ozu",
       "Kenji Mizoguchi"
     ],
     "answer": "Akira Kurosawa",
@@ -285,10 +285,10 @@
     "value": 100,
     "text": "This river runs through Egypt and is closely associated with the rise of ancient Egyptian civilization.",
     "options": [
-      "Nile",
       "Tigris",
-      "Euphrates",
-      "Jordan"
+      "Jordan",
+      "Nile",
+      "Euphrates"
     ],
     "answer": "Nile",
     "used": false
@@ -299,10 +299,10 @@
     "value": 200,
     "text": "This country contains both the cities of Barcelona and Madrid.",
     "options": [
-      "Spain",
-      "Portugal",
+      "France",
       "Italy",
-      "France"
+      "Portugal",
+      "Spain"
     ],
     "answer": "Spain",
     "used": false
@@ -313,10 +313,10 @@
     "value": 300,
     "text": "This mountain range forms a natural border between France and Spain.",
     "options": [
-      "Pyrenees",
       "Alps",
-      "Carpathians",
-      "Apennines"
+      "Apennines",
+      "Pyrenees",
+      "Carpathians"
     ],
     "answer": "Pyrenees",
     "used": false
@@ -327,10 +327,10 @@
     "value": 400,
     "text": "This landlocked African country is home to the city of Addis Ababa.",
     "options": [
-      "Ethiopia",
+      "Sudan",
       "Kenya",
-      "Tanzania",
-      "Sudan"
+      "Ethiopia",
+      "Tanzania"
     ],
     "answer": "Ethiopia",
     "used": false
@@ -341,10 +341,10 @@
     "value": 500,
     "text": "This narrow waterway separates Europe from Asia in Istanbul.",
     "options": [
-      "Bosphorus Strait",
-      "Strait of Gibraltar",
       "Suez Canal",
-      "Dardanelles"
+      "Bosphorus Strait",
+      "Dardanelles",
+      "Strait of Gibraltar"
     ],
     "answer": "Bosphorus Strait",
     "used": false
@@ -355,10 +355,10 @@
     "value": 100,
     "text": "This company released the iPhone in 2007.",
     "options": [
-      "Apple",
+      "Samsung",
       "Microsoft",
-      "Google",
-      "Samsung"
+      "Apple",
+      "Google"
     ],
     "answer": "Apple",
     "used": false
@@ -369,9 +369,9 @@
     "value": 200,
     "text": "This programming language is commonly used with React to build user interfaces for the web.",
     "options": [
-      "JavaScript",
       "C",
       "Swift",
+      "JavaScript",
       "Ruby"
     ],
     "answer": "JavaScript",
@@ -383,10 +383,10 @@
     "value": 300,
     "text": "This data structure works on a last-in, first-out principle.",
     "options": [
-      "Stack",
       "Queue",
       "Tree",
-      "Graph"
+      "Graph",
+      "Stack"
     ],
     "answer": "Stack",
     "used": false
@@ -397,8 +397,8 @@
     "value": 400,
     "text": "This acronym refers to a system that translates domain names into IP addresses.",
     "options": [
-      "DNS",
       "HTTP",
+      "DNS",
       "FTP",
       "SQL"
     ],
@@ -411,10 +411,10 @@
     "value": 500,
     "text": "This computer scientist is widely associated with the concept of the Turing machine.",
     "options": [
-      "Alan Turing",
-      "John von Neumann",
       "Dennis Ritchie",
-      "Tim Berners-Lee"
+      "Alan Turing",
+      "Tim Berners-Lee",
+      "John von Neumann"
     ],
     "answer": "Alan Turing",
     "used": false
