@@ -1,43 +1,49 @@
 import coinIcon from "../assets/coin.png";
 
-function Scoreboard({ players, showAnswerStatus = false }) {
+function Scoreboard({ players, showAnswerStatus = false, chooserId = null }) {
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
   return (
-    <div className="scoreboard polished-scoreboard">
-      <div className="scoreboard-header">
-        <span>Scores</span>
-      </div>
+    <div className="scoreboard">
+      <h2>Scores {players.length}/10</h2>
 
       <div className="score-list">
-        {sortedPlayers.map((player, index) => (
-          <div className="score-row" key={player.id}>
-            <div className="player-left">
-              <div className="rank-badge">#{index + 1}</div>
+        {sortedPlayers.map((player, index) => {
+          const isChooser = player.id === chooserId;
 
-              <div className="player-info">
-                <span className="score-name">{player.name}</span>
+          return (
+            <div
+              className={`score-row ${isChooser ? "chooser-player" : ""}`}
+              key={player.id}
+            >
+              <span className="rank">#{index + 1}</span>
+
+              <div className="player-score-info">
+                <span className="player-name">
+                  {player.name}
+                  {isChooser && (
+                    <span className="mini-chooser-badge">CHOOSING</span>
+                  )}
+                </span>
 
                 {showAnswerStatus ? (
-                  <small>
-                    {player.hasAnswered || player.selectedAnswer ? (
-                      <span className="answered-indicator">Answered</span>
-                    ) : (
-                      <span className="waiting-indicator">Waiting...</span>
-                    )}
-                  </small>
+                  <span className="answer-status">
+                    {player.hasAnswered || player.selectedAnswer
+                      ? "Answered"
+                      : "Waiting..."}
+                  </span>
                 ) : (
-                  <small>Player</small>
+                  <span className="player-role">Player</span>
                 )}
               </div>
-            </div>
 
-            <div className="score-amount">
-              <img src={coinIcon} alt="coins" className="coin-icon" />
-              <span>{player.score}</span>
+              <span className="score-value">
+                <img src={coinIcon} alt="" />
+                {player.score}
+              </span>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

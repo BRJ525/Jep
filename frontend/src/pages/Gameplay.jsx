@@ -64,6 +64,7 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
                   roomCode={roomCode}
                   disabled={false}
                   isHost={isHost}
+                  chooserName={room.hostName || "Host"}
                 />
             )}
           </section>
@@ -71,9 +72,8 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
           <aside className="gameplay-sidebar">
             <Scoreboard
               players={room.players}
-              showAnswerStatus={
-                Boolean(room.currentQuestion) && !room.hasQuestionBeenAnswered
-              }
+              chooserId={room.chooserId}
+              showAnswerStatus={Boolean(room.currentQuestion)}
             />
           </aside>
         </main>

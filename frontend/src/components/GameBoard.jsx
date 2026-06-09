@@ -1,8 +1,17 @@
 import socket from "../socket";
 
-function GameBoard({ questions, roomCode, disabled = false, isHost = false }) {
+function GameBoard({
+  questions,
+  roomCode,
+  disabled = false,
+  isHost = false,
+  chooserId = null,
+  chooserName = null,
+}) {
   const categories = [...new Set(questions.map((q) => q.category))];
   const values = [100, 200, 300, 400, 500];
+
+  const isChooser = chooserId === socket.id;
 
   function selectQuestion(questionId) {
     if (!isHost || disabled || !questionId) return;
@@ -13,11 +22,21 @@ function GameBoard({ questions, roomCode, disabled = false, isHost = false }) {
   return (
     <div className={`board-shell ${isHost ? "host-board" : ""}`}>
       <div className="board-top">
-        <p>
-          {isHost
-            ? "Pick a category and value to reveal the question."
-            : "Waiting for the host to pick a question."}
-        </p>
+        <div className="chooser-info">
+          <span className="chooser-badge">CHOOSING</span>
+
+          <p>
+            {isHost
+              ? chooserName
+                ? `Ask ${chooserName} which question they want.`
+                : "Waiting for a chooser."
+              : isChooser
+                ? "You are choosing. Tell the host which question you want."
+                : chooserName
+                  ? `${chooserName} is choosing the next question.`
+                  : "Waiting for a chooser."}
+          </p>
+        </div>
       </div>
 
       <div
@@ -38,9 +57,8 @@ function GameBoard({ questions, roomCode, disabled = false, isHost = false }) {
 
             const isUsed = question?.used;
 
-            // Important:
-            // Do NOT disable player tiles just because they are not host.
-            // Disabled buttons turn gray/black in the browser/CSS.
+            // Do not disable player tiles just because they are not host.
+            // That keeps them blue instead of gray/black.
             const isDisabled = !question || isUsed;
 
             return (
