@@ -34,10 +34,10 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
     );
   }
 
-  const usedQuestionCount =
-    room.questions?.filter((question) => question.used).length || 0;
-
-  const isGameOver = usedQuestionCount >= 1 && !room.currentQuestion;
+  const isGameOver =
+    room.questions?.length > 0 &&
+    room.questions.every((question) => question.used) &&
+    !room.currentQuestion;
 
   return (
     <div className="gameplay-screen">
