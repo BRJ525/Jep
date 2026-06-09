@@ -11,9 +11,6 @@ function GameBoard({ questions, roomCode, disabled }) {
 
   return (
     <div className="board-shell">
-      <div className="board-top">
-        <p>Pick a category and value to reveal the question.</p>
-      </div>
 
       <div
         className="jeopardy-board"
