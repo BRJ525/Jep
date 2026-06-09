@@ -27,9 +27,9 @@ body {
   padding: 18px;
   box-sizing: border-box;
   background:
-    radial-gradient(circle at top, rgba(255, 204, 0, 0.22), transparent 28%),
+    radial-gradient(circle at top, rgba(17, 95, 244, 0.55), transparent 28%),
     radial-gradient(circle at 20% 20%, rgba(17, 95, 244, 0.55), transparent 32%),
-    radial-gradient(circle at 80% 30%, rgba(255, 65, 65, 0.22), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(17, 95, 244, 0.55), transparent 28%),
     linear-gradient(180deg, #0816b8 0%, #05006f 45%, #020024 100%);
 }
 
@@ -240,9 +240,9 @@ body {
   margin-top: 6px;
   padding: 12px 14px;
   border-radius: 12px;
-  background: rgba(255, 30, 30, 0.18);
-  border: 1px solid rgba(255, 120, 120, 0.45);
-  color: #ffd6d6;
+  background: rgb(236, 49, 49);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 800;
   text-align: center;
@@ -642,9 +642,6 @@ button {
   background: linear-gradient(180deg, #ffffff 0%, #dce8ff 100%);
   color: #071c9f;
   font-weight: 900;
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .gameplay-layout {
@@ -671,10 +668,6 @@ button {
     linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)),
     linear-gradient(180deg, #0c36c7, #05006f);
   border: 1px solid rgba(255, 255, 255, 0.26);
-  box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.44),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    inset 0 -18px 35px rgba(0, 0, 0, 0.18);
 }
 
 .board-top {
@@ -1063,9 +1056,6 @@ button {
   border-radius: 999px;
   background: rgba(255, 204, 0, 0.16);
   border: 1px solid rgba(255, 204, 0, 0.5);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 8px 18px rgba(0, 0, 0, 0.18);
   white-space: nowrap;
 }
 
@@ -1133,9 +1123,6 @@ button {
     linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06)),
     rgba(2, 8, 48, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.18);
 }
 
 .player-left {
@@ -1155,9 +1142,6 @@ button {
   place-items: center;
   font-size: 12px;
   font-weight: 950;
-  box-shadow:
-    0 6px 12px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
   flex-shrink: 0;
 }
 

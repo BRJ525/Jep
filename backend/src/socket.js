@@ -46,17 +46,17 @@ function setupSocket(io) {
       const room = rooms[roomCode];
 
       if (!room) {
-        socket.emit("roomError", "Room not found.");
+        socket.emit("roomError", "Room not found");
         return;
       }
 
       if (room.gameStarted) {
-        socket.emit("roomError", "This game has already started. You cannot join now.");
+        socket.emit("roomError", "This game has already started");
         return;
       }
 
       if (room.players.length >= 4) {
-        socket.emit("roomError", "This room is full.");
+        socket.emit("roomError", "This room is full");
         return;
       }
 
@@ -65,7 +65,7 @@ function setupSocket(io) {
       );
 
       if (nameTaken) {
-        socket.emit("roomError", "That name is already taken.");
+        socket.emit("roomError", "That name is already taken");
         return;
       }
 
@@ -90,7 +90,7 @@ function setupSocket(io) {
       }
 
       if (room.hostId !== socket.id) {
-        socket.emit("roomError", "Only the host can start the game.");
+        socket.emit("roomError", "Only the host can start the game");
         return;
       }
 
