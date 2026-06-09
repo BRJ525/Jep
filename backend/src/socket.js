@@ -9,6 +9,7 @@ import {
   submitAnswer,
   closeQuestion,
   isRoomHost,
+  assignRandomChooser,
 } from "./utils/gameLogic.js";
 
 const questions = JSON.parse(
@@ -157,6 +158,7 @@ function setupSocket(io) {
       }
 
       room.gameStarted = true;
+      assignRandomChooser(room);
 
       io.to(room.roomCode).emit("gameStarted", sanitizeRoom(room));
       io.to(room.roomCode).emit("roomUpdated", sanitizeRoom(room));
@@ -247,6 +249,10 @@ function setupSocket(io) {
 
         room.players = room.players.filter((p) => p.id !== socket.id);
 
+        if (room.chooserId === socket.id) {
+          assignRandomChooser(room);
+        }
+
         io.to(room.roomCode).emit("roomUpdated", sanitizeRoom(room));
       });
 
@@ -260,7 +266,10 @@ function sanitizeRoom(room) {
     roomCode: room.roomCode,
     hostId: room.hostId,
     hostName: room.hostName,
-
+    chooserId: room.chooserId,
+    chooserName:
+      room.players.find((player) => player.id === room.chooserId)?.name || null,
+      
     players: room.players.map((player) => ({
       id: player.id,
       name: player.name,

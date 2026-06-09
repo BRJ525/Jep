@@ -35,6 +35,34 @@ export function addPlayerToRoom(room, player) {
   }
 }
 
+export function assignRandomChooser(room) {
+  if (!room || room.players.length === 0) {
+    if (room) room.chooserId = null;
+    return null;
+  }
+
+  const randomIndex = Math.floor(Math.random() * room.players.length);
+  room.chooserId = room.players[randomIndex].id;
+
+  return room.chooserId;
+}
+
+export function getChooser(room) {
+  if (!room?.chooserId) return null;
+
+  return room.players.find((player) => player.id === room.chooserId) || null;
+}
+
+export function makePlayerChooser(room, playerId) {
+  const player = room.players.find((p) => p.id === playerId);
+
+  if (player) {
+    room.chooserId = player.id;
+  }
+
+  return room.chooserId;
+}
+
 export function selectQuestion(rooms, roomCode, questionId) {
   const room = findRoom(rooms, roomCode);
 
@@ -45,7 +73,6 @@ export function selectQuestion(rooms, roomCode, questionId) {
   if (!question || question.used) return room;
 
   question.used = true;
-
   room.currentQuestion = question;
   room.currentCorrectPlayerId = null;
   room.hasQuestionBeenAnswered = false;
@@ -74,6 +101,8 @@ export function submitAnswer(rooms, roomCode, playerId, selectedAnswer) {
     player.score += room.currentQuestion.value;
     room.currentCorrectPlayerId = playerId;
     room.hasQuestionBeenAnswered = true;
+
+    makePlayerChooser(room, playerId);
   }
 
   return room;
