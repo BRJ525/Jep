@@ -26,51 +26,57 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
   if (!room) {
     return (
       <div className="gameplay-screen">
-        <h2>Loading...</h2>
+        <div className="gameplay-stage">
+          <h2>Loading...</h2>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="gameplay-screen">
-      <header className="gameplay-header">
-        <img src={jeopardeeLogo} alt="Jeopardee" className="gameplay-logo" />
+      <div className="gameplay-stage">
+        <header className="gameplay-header">
+          <div className="gameplay-brand">
+            <img src={jeopardeeLogo} alt="Jeopardee" className="gameplay-logo" />
+          </div>
 
-        <div className="room-code-pill">Room {roomCode}</div>
+          <div className="room-code-pill">Room {roomCode}</div>
 
-        <button className="leave-button" onClick={() => setScreen("home")}>
-          Leave
-        </button>
-      </header>
+          <button className="leave-button" onClick={() => setScreen("home")}>
+            Leave
+          </button>
+        </header>
 
-      <main className="gameplay-layout">
-        <section className="gameplay-main">
-          {room.currentQuestion ? (
-            <QuestionCard
-              question={room.currentQuestion}
-              room={room}
-              roomCode={roomCode}
-              isHost={isHost}
-              timer={timer}
+        <main className="gameplay-layout">
+          <section className="gameplay-main">
+            {room.currentQuestion ? (
+              <QuestionCard
+                question={room.currentQuestion}
+                room={room}
+                roomCode={roomCode}
+                isHost={isHost}
+                timer={timer}
+              />
+            ) : (
+              <GameBoard
+                questions={room.questions}
+                roomCode={roomCode}
+                isHost={isHost}
+              />
+            )}
+          </section>
+
+          <aside className="gameplay-sidebar">
+            <Scoreboard
+              players={room.players}
+              showAnswerStatus={
+                Boolean(room.currentQuestion) && !room.hasQuestionBeenAnswered
+              }
             />
-          ) : (
-            <GameBoard
-              questions={room.questions}
-              roomCode={roomCode}
-              isHost={isHost}
-            />
-          )}
-        </section>
-
-        <aside className="gameplay-sidebar">
-          <Scoreboard
-            players={room.players}
-            showAnswerStatus={
-              Boolean(room.currentQuestion) && !room.hasQuestionBeenAnswered
-            }
-          />
-        </aside>
-      </main>
+          </aside>
+        </main>
+      </div>
     </div>
   );
 }

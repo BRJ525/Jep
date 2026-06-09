@@ -111,7 +111,7 @@ function setupSocket(io) {
         return;
       }
 
-      if (room.players.length >= 4) {
+      if (room.players.length >= 10) {
         socket.emit("roomError", "This room is full");
         return;
       }

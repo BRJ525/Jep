@@ -2,9 +2,10 @@ import socket from "../socket";
 
 function QuestionCard({ question, room, roomCode, isHost, timer }) {
   const players = room?.players || [];
-  const me = players.find((p) => p.id === socket.id);
+  const me = players.find((player) => player.id === socket.id);
+
   const correctPlayer = players.find(
-    (p) => p.id === room?.currentCorrectPlayerId
+    (player) => player.id === room?.currentCorrectPlayerId
   );
 
   const timeLeft = timer?.timeLeft ?? 10;
@@ -12,7 +13,9 @@ function QuestionCard({ question, room, roomCode, isHost, timer }) {
   const progress = totalTime > 0 ? (timeLeft / totalTime) * 360 : 0;
 
   function submitAnswer(option) {
-    if (me?.selectedAnswer || room.hasQuestionBeenAnswered) return;
+    if (isHost) return;
+    if (me?.selectedAnswer || me?.hasAnswered) return;
+    if (room.hasQuestionBeenAnswered) return;
 
     socket.emit("submitAnswer", {
       roomCode,
@@ -58,14 +61,26 @@ function QuestionCard({ question, room, roomCode, isHost, timer }) {
             key={option}
             className="answer-option"
             onClick={() => submitAnswer(option)}
-            disabled={me?.selectedAnswer || room.hasQuestionBeenAnswered}
+            disabled={
+              isHost ||
+              me?.selectedAnswer ||
+              me?.hasAnswered ||
+              room.hasQuestionBeenAnswered
+            }
           >
             {option}
           </button>
         ))}
       </div>
 
-      {me?.selectedAnswer && !room.hasQuestionBeenAnswered && (
+      {isHost && !room.hasQuestionBeenAnswered && (
+        <div className="answer-status waiting-status">
+          <strong>HOST VIEW</strong>
+          <span>Waiting for players to answer...</span>
+        </div>
+      )}
+
+      {!isHost && me?.selectedAnswer && !room.hasQuestionBeenAnswered && (
         <div className="answer-status waiting-status">
           <strong>ANSWERED</strong>
           <span>You answered: {me.selectedAnswer}</span>
@@ -91,7 +106,7 @@ function QuestionCard({ question, room, roomCode, isHost, timer }) {
             )
           ) : (
             <>
-              <strong>TIME'S UP</strong>
+              <strong>TIME&apos;S UP</strong>
               <span>No one answered correctly in time.</span>
             </>
           )}

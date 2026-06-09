@@ -7,7 +7,7 @@ function Scoreboard({ players, showAnswerStatus = false }) {
     <div className="scoreboard polished-scoreboard">
       <div className="scoreboard-header">
         <span>Scores</span>
-        <small>{players.length}/4</small>
+        <small>{players.length}/10</small>
       </div>
 
       <div className="score-list">

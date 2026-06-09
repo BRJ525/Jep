@@ -27,7 +27,7 @@ function Lobby({ roomCode, room }) {
           </div>
 
           <div className="lobby-status">
-            {room?.players.length || 0}/4 Players
+            {room?.players.length || 0}/10 Players
           </div>
 
           <Players players={room?.players || []} room={room} />
