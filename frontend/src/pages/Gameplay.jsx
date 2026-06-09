@@ -59,11 +59,12 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
                 timer={timer}
               />
             ) : (
-              <GameBoard
-                questions={room.questions}
-                roomCode={roomCode}
-                isHost={isHost}
-              />
+                <GameBoard
+                  questions={room.questions}
+                  roomCode={roomCode}
+                  disabled={false}
+                  isHost={isHost}
+                />
             )}
           </section>
 

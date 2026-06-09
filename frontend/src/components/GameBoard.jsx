@@ -1,16 +1,24 @@
 import socket from "../socket";
 
-function GameBoard({ questions, roomCode, disabled }) {
+function GameBoard({ questions, roomCode, disabled = false, isHost = false }) {
   const categories = [...new Set(questions.map((q) => q.category))];
   const values = [100, 200, 300, 400, 500];
 
   function selectQuestion(questionId) {
-    if (disabled || !questionId) return;
+    if (!isHost || disabled || !questionId) return;
+
     socket.emit("selectQuestion", { roomCode, questionId });
   }
 
   return (
-    <div className="board-shell">
+    <div className={`board-shell ${isHost ? "host-board" : ""}`}>
+      <div className="board-top">
+        <p>
+          {isHost
+            ? "Pick a category and value to reveal the question."
+            : "Waiting for the host to pick a question."}
+        </p>
+      </div>
 
       <div
         className="jeopardy-board"
@@ -29,14 +37,18 @@ function GameBoard({ questions, roomCode, disabled }) {
             );
 
             const isUsed = question?.used;
-            const isDisabled = disabled || !question || isUsed;
+
+            // Important:
+            // Do NOT disable player tiles just because they are not host.
+            // Disabled buttons turn gray/black in the browser/CSS.
+            const isDisabled = !question || isUsed;
 
             return (
               <button
                 className={`jeopardy-tile ${isUsed ? "used-tile" : ""}`}
                 key={`${category}-${value}`}
                 disabled={isDisabled}
-                onClick={() => selectQuestion(question.id)}
+                onClick={() => selectQuestion(question?.id)}
               >
                 {!isUsed && question && (
                   <span className="tile-value">${value}</span>
