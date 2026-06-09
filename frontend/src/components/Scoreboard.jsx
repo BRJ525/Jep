@@ -1,6 +1,6 @@
 import coinIcon from "../assets/coin.png";
 
-function Scoreboard({ players }) {
+function Scoreboard({ players, showAnswerStatus = false }) {
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
   return (
@@ -18,7 +18,18 @@ function Scoreboard({ players }) {
 
               <div className="player-info">
                 <span className="score-name">{player.name}</span>
-                <small>Player</small>
+
+                {showAnswerStatus ? (
+                  <small>
+                    {player.hasAnswered || player.selectedAnswer ? (
+                      <span className="answered-indicator">Answered</span>
+                    ) : (
+                      <span className="waiting-indicator">Waiting...</span>
+                    )}
+                  </small>
+                ) : (
+                  <small>Player</small>
+                )}
               </div>
             </div>
 

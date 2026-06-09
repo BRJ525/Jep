@@ -9,8 +9,7 @@ function Lobby({ roomCode, room }) {
   }
 
   return (
-    <div className="home-screen lobby-screen">
-
+    <div className="lobby-screen">
       <div className="home-stage">
         <div className="home-card lobby-card">
           <div className="home-card-top">
@@ -21,6 +20,10 @@ function Lobby({ roomCode, room }) {
           <div className="room-code-box">
             <span>Room Code</span>
             <strong>{roomCode}</strong>
+          </div>
+
+          <div className="waiting-box">
+            Host: {room?.hostName || "Host"}
           </div>
 
           <div className="lobby-status">
@@ -34,9 +37,7 @@ function Lobby({ roomCode, room }) {
               Start Game
             </button>
           ) : (
-            <div className="waiting-box">
-              Waiting for host to start the game...
-            </div>
+            <div className="waiting-box">Waiting for host to start the game...</div>
           )}
         </div>
       </div>

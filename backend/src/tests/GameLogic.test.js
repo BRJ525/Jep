@@ -60,7 +60,6 @@ describe("gameLogic", () => {
         expect(room.players).toEqual([]);
         expect(room.currentQuestion).toBe(null);
 
-        // Makes sure it is not using the exact same questions array
         expect(room.questions).not.toBe(sampleQuestions);
         expect(room.questions).toEqual(sampleQuestions);
     });
