@@ -64,7 +64,7 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
                   roomCode={roomCode}
                   disabled={false}
                   isHost={isHost}
-                  chooserName={room.hostName || "Host"}
+                  chooserName={room.chooserName}
                 />
             )}
           </section>

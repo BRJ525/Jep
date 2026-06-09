@@ -4,8 +4,10 @@ function Scoreboard({ players, showAnswerStatus = false, chooserId = null }) {
   const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
 
   return (
-    <div className="scoreboard">
-      <h2>Scores {players.length}/10</h2>
+    <div className="scoreboard polished-scoreboard">
+      <div className="scoreboard-header">
+        <span>Scores</span>
+      </div>
 
       <div className="score-list">
         {sortedPlayers.map((player, index) => {
@@ -16,31 +18,36 @@ function Scoreboard({ players, showAnswerStatus = false, chooserId = null }) {
               className={`score-row ${isChooser ? "chooser-player" : ""}`}
               key={player.id}
             >
-              <span className="rank">#{index + 1}</span>
+              <div className="player-left">
+                <div className="rank-badge">#{index + 1}</div>
 
-              <div className="player-score-info">
-                <span className="player-name">
-                  {player.name}
-                  {isChooser && (
-                    <span className="mini-chooser-badge">CHOOSING</span>
-                  )}
-                </span>
+                <div className="player-info">
+                  <span className="score-name">
+                    {player.name}
 
-                {showAnswerStatus ? (
-                  <span className="answer-status">
-                    {player.hasAnswered || player.selectedAnswer
-                      ? "Answered"
-                      : "Waiting..."}
+                    {isChooser && (
+                      <span className="mini-chooser-badge">CHOOSING</span>
+                    )}
                   </span>
-                ) : (
-                  <span className="player-role">Player</span>
-                )}
+
+                  {showAnswerStatus ? (
+                    <small>
+                      {player.hasAnswered || player.selectedAnswer ? (
+                        <span className="answered-indicator">Answered</span>
+                      ) : (
+                        <span className="waiting-indicator">Waiting...</span>
+                      )}
+                    </small>
+                  ) : (
+                    <small>Player</small>
+                  )}
+                </div>
               </div>
 
-              <span className="score-value">
-                <img src={coinIcon} alt="" />
-                {player.score}
-              </span>
+              <div className="score-amount">
+                <img src={coinIcon} alt="coins" className="coin-icon" />
+                <span>{player.score}</span>
+              </div>
             </div>
           );
         })}

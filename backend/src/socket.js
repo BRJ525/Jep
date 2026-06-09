@@ -297,6 +297,10 @@ function sanitizeRoom(room) {
         text: room.currentQuestion.text,
         options: room.currentQuestion.options,
         used: room.currentQuestion.used,
+
+        correctAnswer: room.hasQuestionBeenAnswered
+          ? room.currentQuestion.answer
+          : null,
       }
       : null,
   };

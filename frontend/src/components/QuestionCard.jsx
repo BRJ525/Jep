@@ -99,8 +99,7 @@ function QuestionCard({ question, room, roomCode, isHost, timer }) {
               <>
                 <strong>{correctPlayer.name} scored!</strong>
                 <span>
-                  {correctPlayer.name} answered first and earned $
-                  {question.value}!
+                  {correctPlayer.name} answered first and earned ${question.value}!
                 </span>
               </>
             )
@@ -109,6 +108,12 @@ function QuestionCard({ question, room, roomCode, isHost, timer }) {
               <strong>TIME&apos;S UP</strong>
               <span>No one answered correctly in time.</span>
             </>
+          )}
+
+          {question.correctAnswer && (
+            <div className="correct-answer-reveal">
+              Correct answer: <strong>{question.correctAnswer}</strong>
+            </div>
           )}
         </div>
       )}
