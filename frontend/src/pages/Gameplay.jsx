@@ -3,6 +3,7 @@ import socket from "../socket";
 import GameBoard from "../components/GameBoard";
 import Scoreboard from "../components/Scoreboard";
 import QuestionCard from "../components/QuestionCard";
+import WinnerScreen from "./WinnerScreen";
 import jeopardeeLogo from "../assets/jeopardee.png";
 
 function Gameplay({ setScreen, roomCode, room, setRoom }) {
@@ -33,51 +34,57 @@ function Gameplay({ setScreen, roomCode, room, setRoom }) {
     );
   }
 
+  const usedQuestionCount =
+    room.questions?.filter((question) => question.used).length || 0;
+
+  const isGameOver = usedQuestionCount >= 1 && !room.currentQuestion;
+
   return (
     <div className="gameplay-screen">
-      <div className="gameplay-stage">
-        <header className="gameplay-header">
-          <div className="gameplay-brand">
-            <img src={jeopardeeLogo} alt="Jeopardee" className="gameplay-logo" />
-          </div>
+      <header className="gameplay-header">
+        <img src={jeopardeeLogo} alt="Jeopardee" className="gameplay-logo" />
 
-          <div className="room-code-pill">Room {roomCode}</div>
+        <div className="gameplay-room-info">
+          <span>ROOM</span>
+          <strong>{roomCode}</strong>
+        </div>
+      </header>
 
-          <button className="leave-button" onClick={() => setScreen("home")}>
-            Leave
-          </button>
-        </header>
-
-        <main className="gameplay-layout">
-          <section className="gameplay-main">
-            {room.currentQuestion ? (
-              <QuestionCard
-                question={room.currentQuestion}
-                room={room}
-                roomCode={roomCode}
-                isHost={isHost}
-                timer={timer}
-              />
-            ) : (
-                <GameBoard
-                  questions={room.questions}
-                  roomCode={roomCode}
-                  disabled={false}
-                  isHost={isHost}
-                  chooserName={room.chooserName}
-                />
-            )}
-          </section>
-
-          <aside className="gameplay-sidebar">
-            <Scoreboard
+      <main className="gameplay-layout">
+        <section className="gameplay-stage">
+          {isGameOver ? (
+            <WinnerScreen
               players={room.players}
-              chooserId={room.chooserId}
-              showAnswerStatus={Boolean(room.currentQuestion)}
+              onBackToMenu={() => setScreen("home")}
             />
-          </aside>
-        </main>
-      </div>
+          ) : room.currentQuestion ? (
+            <QuestionCard
+              question={room.currentQuestion}
+              room={room}
+              roomCode={roomCode}
+              isHost={isHost}
+              timer={timer}
+            />
+          ) : (
+            <GameBoard
+              questions={room.questions}
+              roomCode={roomCode}
+              disabled={false}
+              isHost={isHost}
+              chooserId={room.chooserId}
+              chooserName={room.chooserName}
+            />
+          )}
+        </section>
+
+        <aside className="gameplay-sidebar">
+          <Scoreboard
+            players={room.players}
+            chooserId={room.chooserId}
+            showAnswerStatus={Boolean(room.currentQuestion)}
+          />
+        </aside>
+      </main>
     </div>
   );
 }
